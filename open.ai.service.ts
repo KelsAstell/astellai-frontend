@@ -60,7 +60,7 @@ export const chatWithGptTurbo = async (
 
     try {
         const res = await fetch(
-            `https://api-yinying-cn.wingmark.cn/chat/AstellAI`,
+            `https://api-yinying-cn.wingmark.cn/chat_v2/AstellAI/`,
             requestInit
         ).then(async (response) => {
             if (!response.ok) {
