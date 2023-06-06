@@ -43,25 +43,24 @@ export const chatWithGptTurbo = async (
 ) => {
     const requestInit: RequestInit = {
         headers: {
+            'User-Agent':'EmoBot(Azalea)/1.0.5',
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
         },
         method: 'POST',
         body: JSON.stringify({
-            model: 'gpt-3.5-turbo',
+            token: '${apiKey}',
             messages: messages.map((item) => ({
                 role: item.role,
                 content: item.content,
             })),
-            temperature: 0.6,
-            stream: true,
+            clearMsg: false,
         }),
         signal: controller.signal,
     };
 
     try {
         const res = await fetch(
-            `https://api.openai.com/v1/chat/completions`,
+            `https://api-yinying-cn.wingmark.cn/chat/AstellAI`,
             requestInit
         ).then(async (response) => {
             if (!response.ok) {
